@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ble_not_supported">设备不支持BLE蓝牙</string>
+    <string name="ble_not_open">ble蓝牙未开启</string>
+    <string name="choose_device">选择设备连接</string>
+</resources>

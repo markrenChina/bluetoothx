@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ble_not_supported">ble not supported</string>
+    <string name="ble_not_open">ble not open</string>
+    <string name="choose_device">choose device</string>
+    <string name="cancel">cancel</string>
+</resources>

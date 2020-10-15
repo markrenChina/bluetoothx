@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">bluetoothx_demo</string>
+    <string name="rejected">权限被拒绝</string>
+</resources>
