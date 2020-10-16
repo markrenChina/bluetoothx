@@ -6,14 +6,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
-import android.os.Message
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.ccand99.mark.BlueTooth
-import com.ccand99.mark.MESSAGE_READ
-import com.ccand99.mark.MESSAGE_STATE_CHANGE
+import com.ccand99.mark.*
 import com.cpnir.centrifugalshock.kthighfunction.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,27 +23,40 @@ class MainActivity : AppCompatActivity() {
     /**
      * The Handler that gets information back from the BluetoothChatService
      */
-    private val mHandler: Handler = object : Handler() {
-        override fun handleMessage(msg: Message) {
-            when(msg.what){
-                MESSAGE_STATE_CHANGE -> {
-                    when (msg.arg1) {
-                        BlueTooth.STATE_CONNECTED -> Log.i(TAG, "handleMessage: connected ")
-                        BlueTooth.STATE_CONNECTING -> Log.i(TAG, "handleMessage: connecting...")
-                        else -> Log.i(TAG, "handleMessage: not connected")
-                    }
+    private val mHandler: Handler = Handler(Handler.Callback {
+        when (it.what) {
+            MESSAGE_STATE_CHANGE -> {
+                when (it.arg1) {
+                    BlueTooth.STATE_CONNECTED -> Log.i(TAG, "handleMessage: connected ")
+                    BlueTooth.STATE_CONNECTING -> Log.i(TAG, "handleMessage: connecting...")
+                    else -> Log.i(TAG, "handleMessage: not connected")
                 }
-                MESSAGE_READ -> {
-                    val readBuf = msg.obj as ByteArray
-                    // construct a string from the valid bytes in the buffer
-                    // construct a string from the valid bytes in the buffer
-                    val readMessage = String(readBuf, 0, msg.arg1)
-                    Log.i(TAG, "handleMessage: $readMessage")
-                }
+            }
+            MESSAGE_READ -> {
+                val readBuf = it.obj as ByteArray
+                // construct a string from the valid bytes in the buffer
+                val readMessage = String(readBuf, 0, it.arg1)
+                Log.i(TAG, "handle read Message: $readMessage")
 
             }
+            MESSAGE_WRITE ->{
+                val writeBuf = it.obj as ByteArray
+                // construct a string from the valid bytes in the buffer
+                val writeMessage = String(writeBuf)
+                Log.i(TAG, "handle write Message: $writeMessage")
+            }
+            MESSAGE_DEVICE_NAME ->{
+                // save the connected device's name
+                val mConnectedDeviceName = it.data.getString(DEVICE_NAME)
+                "$mConnectedDeviceName connected".showToast(applicationContext)
+            }
+            MESSAGE_TOAST -> {
+                it.data.getString(TOAST)?.showToast(applicationContext)
+            }
+            else -> {}
         }
-    }
+        false
+    })
 
     /**
      * 请求权限的请求码
