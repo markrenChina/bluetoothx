@@ -1,6 +1,6 @@
 # bluetoothx
 
-last version 1.0.1
+[ ![Download](https://api.bintray.com/packages/markren/maven/bluetoothx/images/download.svg?version=1.0.1) ](https://bintray.com/markren/maven/bluetoothx/1.0.1/link)
 
 ## 蓝牙通信
 
