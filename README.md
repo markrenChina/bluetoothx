@@ -1,5 +1,7 @@
 # bluetoothx
 
+last version 1.0.1
+
 ## 蓝牙通信
 
 基于[谷歌官方经典蓝牙示例](
@@ -31,7 +33,7 @@ mHandler为处理带回的消息
 ## 使用方式<br>
 被连接方需要在主动调用start()推荐在onResume()
 
-主动连接方调用blueTooth?.showDeviceListDialog()，然后选择已配对完成的设备会自动连接。
+主动连接方调用blueTooth?.chooseDeviceConnect()，然后选择已配对完成的设备会自动连接。
 
 ## 通用常量
 kt文件下
@@ -57,3 +59,7 @@ const val STATE_CONNECTING = 2 // now initiating an outgoing connection
 const val STATE_CONNECTED = 3 // now connected to a remote device
 ```
 
+# v1.0.1
+1.新整getRemoteDevice(mac: String) 可以用mac获得BluetoothDevice 然后用connect(device: BluetoothDevice, secure: Boolean)直接连接
+2.可修改BlueTooth.MY_UUID_INSECURE 和 BlueTooth.MY_UUID_SECURE 请在getInstance之前修改
+2.修改showDeviceListDialog()方法名字为chooseDeviceConnect()
