@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         connect.setOnClickListener {
-            blueTooth?.showDeviceListDialog()
+            blueTooth?.chooseDeviceConnect()
         }
 
         send.setOnClickListener {

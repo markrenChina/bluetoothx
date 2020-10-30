@@ -30,8 +30,8 @@ class BlueTooth(
         private const val NAME_INSECURE = "BluetoothChatInsecure"
 
         // Unique UUID for this application
-        private val MY_UUID_SECURE = UUID.fromString("91c941da-c7fb-4933-9d76-9e0660a47d9b")
-        private val MY_UUID_INSECURE = UUID.fromString("3887354f-4433-45c4-a37e-6bd618a380ad")
+        public var MY_UUID_SECURE = UUID.fromString("91c941da-c7fb-4933-9d76-9e0660a47d9b")
+        public var MY_UUID_INSECURE = UUID.fromString("3887354f-4433-45c4-a37e-6bd618a380ad")
 
         // Constants that indicate the current connection state
         const val STATE_NONE = 0 // we're doing nothing
@@ -259,7 +259,7 @@ class BlueTooth(
         }
     }
 
-    public fun showDeviceListDialog() {
+    public fun chooseDeviceConnect() {
         val items = getPairedDevice().toTypedArray()
         val deviceDialog: AlertDialog = AlertDialog.Builder(activity)
             .setTitle(activity.getString(R.string.choose_device))
@@ -542,4 +542,6 @@ class BlueTooth(
             mState = STATE_CONNECTED
         }
     }
+
+    fun getRemoteDevice(mac: String): BluetoothDevice = bluetoothAdapter!!.getRemoteDevice(mac)
 }
