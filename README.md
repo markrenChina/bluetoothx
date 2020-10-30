@@ -60,6 +60,6 @@ const val STATE_CONNECTED = 3 // now connected to a remote device
 ```
 
 # v1.0.1
-1.新整getRemoteDevice(mac: String) 可以用mac获得BluetoothDevice 然后用connect(device: BluetoothDevice, secure: Boolean)直接连接
-2.可修改BlueTooth.MY_UUID_INSECURE 和 BlueTooth.MY_UUID_SECURE 请在getInstance之前修改
-2.修改showDeviceListDialog()方法名字为chooseDeviceConnect()
+1.新整getRemoteDevice(mac: String) 可以用mac获得BluetoothDevice 然后用connect(device: BluetoothDevice, secure: Boolean)直接连接<br>
+2.可修改BlueTooth.MY_UUID_INSECURE 和 BlueTooth.MY_UUID_SECURE 请在getInstance之前修改<br>
+3.修改showDeviceListDialog()方法名字为chooseDeviceConnect()<br>
