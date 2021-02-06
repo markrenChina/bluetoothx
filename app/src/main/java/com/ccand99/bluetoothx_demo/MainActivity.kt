@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.ccand99.mark.*
-import com.cpnir.centrifugalshock.kthighfunction.showToast
+import com.ccand99.bluetoothx_demo.kthighfunction.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

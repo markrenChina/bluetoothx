@@ -1,4 +1,4 @@
-package com.cpnir.centrifugalshock.kthighfunction
+package com.ccand99.bluetoothx_demo.kthighfunction
 
 import android.content.Context
 import android.widget.Toast
